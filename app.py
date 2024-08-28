@@ -17,7 +17,7 @@ st.set_page_config(
 # Title
 st.title("☘️ Sorteador")
 
-def teste_write():
+def teste_write(title):
     st.write("teste: ", title)
 
-title = st.text_input("Movie title", on_change=teste_write)
+title = st.text_input("Movie title", on_change=teste_write(title))
