@@ -8,8 +8,11 @@ import plotly.express as px
 #######################
 # Page configuration
 st.set_page_config(
-    page_title="US Population Dashboard",
-    page_icon="🏂",
+    page_title="Sorteador",
+    page_icon="☘️",
     layout="wide",
     initial_sidebar_state="expanded")
 
+#######################
+# Title
+st.title("Sorteador")
