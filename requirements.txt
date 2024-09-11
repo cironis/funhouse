@@ -1,5 +1,4 @@
+
 streamlit
 pandas
-altair
-plotly
-numerize
+streamlit_gsheets

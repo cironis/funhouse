@@ -1,23 +1,25 @@
-#######################
-# Import libraries
 import streamlit as st
-import pandas as pd
-import altair as alt
-import plotly.express as px
 
-#######################
-# Page configuration
-st.set_page_config(
-    page_title="Sorteador",
-    page_icon="☘️",
-    layout="wide",
-    initial_sidebar_state="expanded")
+# --- PAGE SETUP ---
+boardgame_page = st.Page(
+    "views/boardgame_list.py",
+    title="Lista de Boardgames",
+    icon=":material/thumb_up:",
+)
 
-#######################
-# Title
-st.title("☘️ Sorteador")
+# --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
+# pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
 
-def teste_write(title):
-    st.write("teste: ", title)
+# --- NAVIGATION SETUP [WITH SECTIONS]---
+pg = st.navigation(
+    {
+        "Boardgames": [boardgame_page]
+    }
+)
 
-title = st.text_input("Movie title", on_change=teste_write(title))
+
+# --- SHARED ON ALL PAGES ---
+# st.logo("assets/codingisfun_logo.png")
+
+# --- RUN NAVIGATION ---
+pg.run()
