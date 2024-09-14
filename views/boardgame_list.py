@@ -22,8 +22,7 @@ render_image = JsCode('''
     // Create a new image element
     var img = new Image();
 
-    // Set the src property to the value of the cell (should be a URL pointing to an image)
-    img.src = params.value;
+    img.src = params.data.thumbnail;
 
     // Set the width and height of the image to 50 pixels
     img.width = 50;
@@ -44,7 +43,6 @@ gb.configure_column(
     cellRenderer='render_image',
     width=100
 )
-
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
@@ -67,6 +65,7 @@ gridOptions = gb.build()
 gridOptions['onCellClicked'] = on_cell_clicked
 
 # Display the grid
+
 AgGrid(
     df,
     gridOptions=gridOptions,
