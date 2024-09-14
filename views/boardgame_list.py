@@ -22,6 +22,7 @@ cell_renderer =  JsCode("""
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
             this.eGui.setAttribute('height', "100");
+            this.eGui.setAttribute('align', "middle");
           }
           getGui() {
             return this.eGui;
