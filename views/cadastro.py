@@ -14,8 +14,8 @@ with open('config/config.yaml') as file:
 # Initialize the authenticator
 authenticator = stauth.Authenticate(
     config['credentials'],
-    'cookie_name',           # Replace with your cookie name
-    'signature_key',         # Replace with your signature key
+    'the_cookie',           # Replace with your cookie name
+    signature_key,         # Replace with your signature key
     cookie_expiry_days=30
 )
 
