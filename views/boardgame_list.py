@@ -19,10 +19,10 @@ df = load_main_dataframe("database")
 cell_renderer =  JsCode("""
         class UrlCellRenderer {
           init(params) {
-            this.eGui = document.createElement('center').createElement('img');
+            this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
             this.eGui.setAttribute('height', "100");
-            this.eGui.setAttribute('align', "middle");
+            this.eGui.setAttribute('align', "center");
           }
           getGui() {
             return this.eGui;
