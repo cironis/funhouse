@@ -12,7 +12,7 @@ def load_main_dataframe(worksheet):
     df = conn.read(worksheet=worksheet)
     return df
 
-st.title("Board Game - Database")
+st.title("Database")
 
 df = load_main_dataframe("database")
 
