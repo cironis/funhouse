@@ -26,7 +26,7 @@ with filter_2:
     diy_filter = st.selectbox("DIY",["Todos","Sim","Não"])
 
 if num_players is not None:
-    df = df.loc[(df['minplayers'] <= num_players) and (df['maxplayers'] >= num_players)]
+    df = df.loc[(df['minplayers'] <= num_players) & (df['maxplayers'] >= num_players)]
 
 if diy_filter != "Todos":
     if diy_filter == "Sim":
