@@ -20,7 +20,7 @@ df = load_main_dataframe("database")
 filter_1,filter_2 = st.columns(2)
 
 with filter_1:
-    num_players = st.number_input("Number of players",step=1,min_value=1,placeholder="Number of players",value=None)
+    num_players = st.number_input("Number of players",step=1,min_value=1,placeholder="Number of players",value=2)
     
 with filter_2:
     diy_filter = st.selectbox("DIY",["Todos","Sim","Não"])
