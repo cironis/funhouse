@@ -21,7 +21,7 @@ cell_renderer =  JsCode("""
           init(params) {
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
-            this.eGui.setAttribute('height', "150");
+            this.eGui.setAttribute('height', "100");
           }
           getGui() {
             return this.eGui;
@@ -33,7 +33,7 @@ cell_renderer =  JsCode("""
 # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
 gb = GridOptionsBuilder.from_dataframe(df)
 
-gb.configure_grid_options(rowHeight=150)
+gb.configure_grid_options(rowHeight=100)
 
 gb.configure_column(
     'thumbnail',
