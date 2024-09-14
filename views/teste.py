@@ -37,7 +37,7 @@ gb.configure_column(
     "link",
     headerName="link",
     width=100,
-    height=100,
+    height=300,
     cellRenderer=cell_renderer
 )
 
