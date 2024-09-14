@@ -55,5 +55,6 @@ gridOptions['onCellClicked'] = on_cell_clicked
 AgGrid(
     test_df,
     gridOptions=gridOptions,
-    allow_unsafe_jscode=True
+    allow_unsafe_jscode=True,
+    allow_unsafe_html=True
 )
