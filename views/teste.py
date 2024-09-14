@@ -22,7 +22,9 @@ cell_renderer =  JsCode("""
         class UrlCellRenderer {
           init(params) {
             this.eGui = document.createElement('img');
-            this.eGui.setAttribute('src', "https://fastly.picsum.photos/id/194/200/200.jpg?hmac=f1VYjvgDG_6vPwJyTb-Xl1HpXKM23stmhFUnmPE_yL8");
+            this.eGui.setAttribute('src', "https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY");
+            this.eGui.setAttribute('width', "100");
+            this.eGui.setAttribute('height', "100");
           }
           getGui() {
             return this.eGui;
