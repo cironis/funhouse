@@ -18,8 +18,6 @@ st.title("Board Game - Database")
 
 df = load_main_dataframe("database")
 
-df["image_path"] = df["game_id"].apply(lambda x: f"/images/image_{x}.jpg")
-
 cell_renderer = JsCode('''
 function(params) {
     return '<a href="' + params.data.url + '" target="_blank"><img src="' + params.data.image_path + '" style="height:60px;"></a>';
@@ -35,7 +33,7 @@ function(params) {
 
 # Build grid options
 gb = GridOptionsBuilder.from_dataframe(df)
-gb.configure_column('image_path', headerName='Image', cellRenderer=cell_renderer)
+gb.configure_column('thumbnail', headerName='Image', cellRenderer=cell_renderer)
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
