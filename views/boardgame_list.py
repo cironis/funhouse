@@ -51,24 +51,43 @@ cell_renderer = JsCode("""
 # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
 gb = GridOptionsBuilder.from_dataframe(df)
 
-gb.configure_grid_options(rowHeight=100)
+column_defs = [
+    {
+        'field': 'thumbnail',
+        'headerName': 'Image',
+        'cellRenderer': cell_renderer,
+        'width': 120
+    },
+    {
+        'field': 'name',
+        'headerName': 'Name'
+    },
+    {
+        'field': 'year',
+        'headerName': 'Year'
+    },
+    {
+        'field': 'minplayers',
+        'headerName': 'Min Players'
+    },
+    {
+        'field': 'maxplayers',
+        'headerName': 'Max Players'
+    },
+    {
+        'field': 'url',
+        'headerName': 'URL',
+        'hide': True  # Hide the 'url' column but keep it in data
+    }
+]
 
-gb.configure_column(
-    'thumbnail',
-    headerName='Image',
-    cellRenderer=cell_renderer,
-    width=100,
-)
-gb.configure_column('name', headerName='Name')
-gb.configure_column('year', headerName='Year')
-gb.configure_column('minplayers', headerName='Min Players')
-gb.configure_column('maxplayers', headerName='Max Players')
-gb.configure_columns(['game_id','url'], hide=True)
+# Build the grid options
+gridOptions = {
+    'columnDefs': column_defs,
+    'rowHeight': 120  # Adjust the row height as needed
+}
 
 
-gridOptions = gb.build()
-
-# Display the grid
 AgGrid(
     df,
     gridOptions=gridOptions,
