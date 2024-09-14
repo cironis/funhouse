@@ -3,5 +3,5 @@ streamlit
 pandas
 st-gsheets-connection
 streamlit-aggrid
-yaml
+PyYAML
 streamlit_authenticator
