@@ -40,7 +40,7 @@ gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_column(
     'thumbnail',
     headerName='Image',
-    cellRenderer='render_image',
+    cellRenderer=render_image,
     width=100
 )
 gb.configure_column('name', headerName='Name')
