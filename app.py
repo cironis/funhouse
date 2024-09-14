@@ -7,13 +7,20 @@ boardgame_page = st.Page(
     icon=":material/thumb_up:",
 )
 
+teste_page = st.Page(
+    "views/teste.py",
+    title="Teste",
+    icon=":material/thumb_up:",
+)
+
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
 
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
-        "Boardgames": [boardgame_page]
+        "Boardgames": [boardgame_page],
+        "testes": [teste_page]
     }
 )
 
