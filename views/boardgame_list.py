@@ -16,6 +16,9 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
+st.warning(df.columns)
+
+
 cell_renderer = JsCode("""
     class UrlCellRenderer {
         init(params) {
