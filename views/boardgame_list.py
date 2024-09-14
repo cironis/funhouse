@@ -16,16 +16,27 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
+cell_renderer =  JsCode("""
+        class UrlCellRenderer {
+          init(params) {
+            this.eGui = document.createElement('img');
+            this.eGui.setAttribute('src', params.value);
+            this.eGui.setAttribute('width', "100");
+            this.eGui.setAttribute('height', "100");
+          }
+          getGui() {
+            return this.eGui;
+          }
+        }
+    """)
+
+
 # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_column(
     'thumbnail',
     headerName='Image',
-    cellRenderer='agImageCellRenderer',
-    cellRendererParams={
-        'imageHeight': 50,
-        'imageWidth': 50
-    },
+    cellRenderer=cell_renderer,
     width=100
 )
 gb.configure_column('name', headerName='Name')
