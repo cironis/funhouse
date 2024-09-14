@@ -21,11 +21,8 @@ gb = GridOptionsBuilder.from_dataframe(df,
 cell_renderer =  JsCode("""
         class UrlCellRenderer {
           init(params) {
-            this.eGui = document.createElement('a');
-            this.eGui.innerText = 'SomeText';
-            this.eGui.setAttribute('href', params.value);
-            this.eGui.setAttribute('style', "text-decoration:none");
-            this.eGui.setAttribute('target', "_blank");
+            this.eGui = document.createElement('img');
+            this.eGui.setAttribute('scr', "https://fastly.picsum.photos/id/194/200/200.jpg?hmac=f1VYjvgDG_6vPwJyTb-Xl1HpXKM23stmhFUnmPE_yL8");
           }
           getGui() {
             return this.eGui;
