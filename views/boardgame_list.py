@@ -33,7 +33,7 @@ function(params) {
 
 # Build grid options
 gb = GridOptionsBuilder.from_dataframe(df)
-gb.configure_column('thumbnail', headerName='Image', cellRenderer=cell_renderer)
+gb.configure_column('thumbnail', headerName='Image', cellRenderer=cell_renderer,html=True)
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
@@ -44,4 +44,4 @@ gb.configure_grid_options(getRowHeight=get_row_height)
 gridOptions = gb.build()
 
 # Display the grid
-AgGrid(df, gridOptions=gridOptions, allow_unsafe_jscode=True)
+AgGrid(df, gridOptions=gridOptions, allow_unsafe_jscode=True,unsafe_allow_html=True)
