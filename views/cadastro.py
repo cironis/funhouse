@@ -19,6 +19,8 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days=30
 )
 
+st.write(authenticator)
+
 # Login widget
 name, authentication_status, username = authenticator.login('Login', 'main')
 
