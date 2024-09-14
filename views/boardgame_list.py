@@ -16,8 +16,29 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
-df = df[['game_id', 'name', 'year', 'minplayers', 'maxplayers', 'playingtime', 'thumbnail', 'url', 'DIY']]
-st.warning(df.columns)
+# columns ['game_id', 'name', 'year', 'minplayers', 'maxplayers', 'playingtime', 'thumbnail', 'url', 'DIY']
+filter_1,filter_2,filter_3 = st.columns(3)
+
+with filter_1:
+    max_player = st.number_input("Max Players",step=1,min_value=1,placeholder="Max Players",value=None)
+    
+with filter_2:
+    min_player = st.number_input("Min Players",step=1,min_value=1,placeholder="Min Players",value=None)
+
+with filter_3:
+    diy_filter = st.selectbox("DIY",["Todos","Sim","Não"])
+
+if max_player is not None:
+    df = df[df['maxplayers'] <= max_player]
+
+if min_player is not None:
+    df = df[df['minplayers'] >= min_player]
+
+if diy_filter != "Todos":
+    if diy_filter == "Sim":
+        df = df[df['DIY'] == True]
+    else:
+        df = df[df['DIY'] == False]
 
 
 cell_renderer = JsCode("""
@@ -60,7 +81,8 @@ column_defs = [
     },
     {
         'field': 'name',
-        'headerName': 'Name'
+        'headerName': 'Name',
+        'width':None
     },
     {
         'field': 'year',
@@ -75,12 +97,13 @@ column_defs = [
         'headerName': 'Max Players'
     },
     {
+        'field': 'playingtime',
+        'headerName': 'Playing Time (min)'
+    },
+    {
         'field': 'url',
         'headerName': 'URL',
         'hide': True  # Hide the 'url' column but keep it in data
-    },
-    {  'field': 'DIY',
-        'headerName': 'DIY',
     }
 ]
 
