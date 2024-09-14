@@ -8,7 +8,7 @@ from yaml.loader import SafeLoader
 signature_key = st.secrets["credentials"]["signature_key"]
 
 # Load credentials from the config.yaml file
-with open('/config/config.yaml') as file:
+with open('config/config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 # Initialize the authenticator
