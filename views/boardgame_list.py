@@ -119,10 +119,16 @@ function(event) {
 
 gridOptions['onGridReady'] = on_grid_ready
 
+
+themes = ['streamlit', 'light', 'dark', 'balham', 'material', 'alpine', 'blue', 'fresh']
+selected_theme = st.selectbox('Select a theme:', themes, index=themes.index('balham'))
+
+
 AgGrid(
     df,
     gridOptions=gridOptions,
     allow_unsafe_jscode=True,
-    fit_columns_on_grid_load=True
+    fit_columns_on_grid_load=True,
+    theme=selected_theme
 )
 
