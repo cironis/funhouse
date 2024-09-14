@@ -16,14 +16,35 @@ st.title("Board Game - Database")
 
 df = load_main_dataframe("database")
 
+render_image = JsCode('''
+                      
+    function renderImage(params) {
+    // Create a new image element
+    var img = new Image();
+
+    // Set the src property to the value of the cell (should be a URL pointing to an image)
+    img.src = params.value;
+
+    // Set the width and height of the image to 50 pixels
+    img.width = 50;
+    img.height = 50;
+
+    // Return the image element
+    return img;
+    }
+'''
+)
+
+
 # Configure the 'thumbnail' column to use 'agImageCellRenderer'
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_column(
     'thumbnail',
     headerName='Image',
-    cellRenderer='agImageCellRenderer',
+    cellRenderer='render_image',
     width=100
 )
+
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
