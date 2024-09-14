@@ -18,7 +18,7 @@ df = pd.DataFrame(data)
 gb = GridOptionsBuilder.from_dataframe(df,
                                         editable=True)
 
-gb.configure_grid_options(rowHeight=200)
+gb.configure_grid_options(rowHeight=None)
 
 cell_renderer =  JsCode("""
         class UrlCellRenderer {
