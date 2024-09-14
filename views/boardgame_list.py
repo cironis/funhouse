@@ -46,9 +46,6 @@ gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
 gb.configure_column('maxplayers', headerName='Max Players')
 gb.configure_columns(['playingtime', 'url'], hide=True)
-gb.configure_grid_options(
-    getRowHeight=JsCode('function(params) { return 80; }')
-)
 
 # Define the onCellClicked event
 on_cell_clicked = JsCode('''
