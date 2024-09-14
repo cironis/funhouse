@@ -22,7 +22,7 @@ cell_renderer =  JsCode("""
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
             this.eGui.setAttribute('width', "100");
-            this.eGui.setAttribute('height', "200");
+            this.eGui.setAttribute('height', "150");
           }
           getGui() {
             return this.eGui;
@@ -37,7 +37,8 @@ gb.configure_column(
     'thumbnail',
     headerName='Image',
     cellRenderer=cell_renderer,
-    width=100
+    width=100,
+    height=150
 )
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
