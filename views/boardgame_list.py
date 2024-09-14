@@ -31,7 +31,6 @@ render_image = JsCode("""function (params) {
                 imageElement.src = "";
             }
             element.appendChild(imageElement);
-            element.appendChild(document.createTextNode(params.value));
             return element;
             }""")
 
