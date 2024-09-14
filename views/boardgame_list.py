@@ -76,13 +76,11 @@ column_defs = [
     {
         'field': 'thumbnail',
         'headerName': 'Image',
-        'cellRenderer': cell_renderer,
-        'width': 120
+        'cellRenderer': cell_renderer
     },
     {
         'field': 'name',
-        'headerName': 'Name',
-        'width':None
+        'headerName': 'Name'
     },
     {
         'field': 'year',
@@ -110,13 +108,21 @@ column_defs = [
 # Build the grid options
 gridOptions = {
     'columnDefs': column_defs,
-    'rowHeight': 120  # Adjust the row height as needed
+    'rowHeight': 120
 }
 
+on_grid_ready = JsCode("""
+function(event) {
+    event.api.sizeColumnsToFit();
+}
+""")
+
+gridOptions['onGridReady'] = on_grid_ready
 
 AgGrid(
     df,
     gridOptions=gridOptions,
-    allow_unsafe_jscode=True
+    allow_unsafe_jscode=True,
+    fit_columns_on_grid_load=True
 )
 
