@@ -16,6 +16,7 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
+df = df[['game_id', 'name', 'year', 'minplayers', 'maxplayers', 'playingtime', 'thumbnail', 'url', 'DIY']]
 st.warning(df.columns)
 
 
@@ -62,19 +63,10 @@ gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
 gb.configure_column('maxplayers', headerName='Max Players')
-gb.configure_columns(['url'], hide=True)
+gb.configure_columns(['game_id','url'], hide=True)
 
-# Define the onCellClicked event
-on_cell_clicked = JsCode('''
-function(event) {
-    if (event.colDef.field === 'thumbnail') {
-        window.open(event.data.url, '_blank');
-    }
-}
-''')
 
 gridOptions = gb.build()
-gridOptions['onCellClicked'] = on_cell_clicked
 
 # Display the grid
 AgGrid(
