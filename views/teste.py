@@ -18,16 +18,7 @@ df = pd.DataFrame(data)
 gb = GridOptionsBuilder.from_dataframe(df,
                                         editable=True)
 
-# cell_renderer =  JsCode("""
-#                         function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
-#                         """)
-
-
-gb.configure_column(
-    "link",
-    headerName="link",
-    width=100,
-    cellRenderer=JsCode("""
+cell_renderer =  JsCode("""
         class UrlCellRenderer {
           init(params) {
             this.eGui = document.createElement('a');
@@ -41,6 +32,13 @@ gb.configure_column(
           }
         }
     """)
+
+
+gb.configure_column(
+    "link",
+    headerName="link",
+    width=100,
+    cellRenderer=cell_renderer
 )
 
 grid = AgGrid(df,
