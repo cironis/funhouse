@@ -33,7 +33,7 @@ cell_renderer =  JsCode("""
 # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
 gb = GridOptionsBuilder.from_dataframe(df)
 
-gb.configure_grid_options(rowHeight=200)
+gb.configure_grid_options(rowHeight=None)
 
 gb.configure_column(
     'thumbnail',
