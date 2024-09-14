@@ -16,20 +16,6 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
-# cell_renderer =  JsCode("""
-#         class UrlCellRenderer {
-#           init(params) {
-#             this.eGui = document.createElement('img');
-#             this.eGui.setAttribute('src', params.value);
-#             this.eGui.setAttribute('height', "100");
-#             this.eGui.setAttribute('style', "display: block; margin-left: auto; margin-right: auto;");
-#           }
-#           getGui() {
-#             return this.eGui;
-#           }
-#         }
-#     """)
-
 cell_renderer = JsCode("""
     class UrlCellRenderer {
         init(params) {
@@ -73,7 +59,7 @@ gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
 gb.configure_column('maxplayers', headerName='Max Players')
-gb.configure_columns(['playingtime', 'url'], hide=True)
+gb.configure_columns(['url'], hide=True)
 
 # Define the onCellClicked event
 on_cell_clicked = JsCode('''
