@@ -8,9 +8,9 @@ boardgame_page = st.Page(
 )
 
 teste_page = st.Page(
-    "views/teste.py",
-    title="Teste",
-    icon=":material/chess:",
+    "views/cadastro.py",
+    title="Cadastrar Jogos",
+    icon=":material/settings:",
 )
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
@@ -20,7 +20,7 @@ teste_page = st.Page(
 pg = st.navigation(
     {
         "Boardgames": [boardgame_page],
-        "testes": [teste_page]
+        "Configurações": [teste_page]
     }
 )
 
