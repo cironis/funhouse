@@ -22,7 +22,7 @@ cell_renderer =  JsCode("""
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
             this.eGui.setAttribute('height', "100");
-            this.eGui.setAttribute('align', "center");
+            this.eGui.setAttribute('style', "display: block; margin-left: auto; margin-right: auto;");
           }
           getGui() {
             return this.eGui;
