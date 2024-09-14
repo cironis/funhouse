@@ -17,22 +17,16 @@ st.title("Database")
 df = load_main_dataframe("database")
 
 # columns ['game_id', 'name', 'year', 'minplayers', 'maxplayers', 'playingtime', 'thumbnail', 'url', 'DIY']
-filter_1,filter_2,filter_3 = st.columns(3)
+filter_1,filter_2 = st.columns(2)
 
 with filter_1:
-    max_player = st.number_input("Max Players",step=1,min_value=1,placeholder="Max Players",value=None)
+    num_players = st.number_input("Number of players",step=1,min_value=1,placeholder="Number of players",value=None)
     
 with filter_2:
-    min_player = st.number_input("Min Players",step=1,min_value=1,placeholder="Min Players",value=None)
-
-with filter_3:
     diy_filter = st.selectbox("DIY",["Todos","Sim","Não"])
 
-if max_player is not None:
-    df = df[df['maxplayers'] <= max_player]
-
-if min_player is not None:
-    df = df[df['minplayers'] >= min_player]
+if num_players is not None:
+    df = df.loc[(df['minplayers'] <= num_players) and (df['maxplayers'] >= num_players)]
 
 if diy_filter != "Todos":
     if diy_filter == "Sim":

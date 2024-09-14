@@ -4,13 +4,13 @@ import streamlit as st
 boardgame_page = st.Page(
     "views/boardgame_list.py",
     title="Lista de Boardgames",
-    icon=":material/thumb_up:",
+    icon=":material/chess:",
 )
 
 teste_page = st.Page(
     "views/teste.py",
     title="Teste",
-    icon=":material/thumb_up:",
+    icon=":material/chess:",
 )
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
