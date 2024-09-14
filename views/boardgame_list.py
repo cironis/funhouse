@@ -20,7 +20,7 @@ df = load_main_dataframe("database")
 
 cell_renderer = JsCode('''
 function(params) {
-    return '<a href="' + params.data.url + '" target="_blank"><img src="' + params.data.image_path + '" style="height:60px;"></a>';
+    return '<a href="' + params.data.url + '" target="_blank"><img src="' + params.data.thumbnail + '" style="height:60px;"></a>';
 }
 ''')
 
