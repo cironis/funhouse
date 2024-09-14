@@ -78,6 +78,9 @@ column_defs = [
         'field': 'url',
         'headerName': 'URL',
         'hide': True  # Hide the 'url' column but keep it in data
+    },
+    {  'field': 'DIY',
+        'headerName': 'DIY',
     }
 ]
 
