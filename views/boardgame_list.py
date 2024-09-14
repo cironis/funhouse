@@ -1,8 +1,7 @@
-
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
-from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 st.set_page_config(page_title="Board Game - Database", page_icon="♙", layout="wide")
 
@@ -16,32 +15,17 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
-render_image = JsCode('''
-                      
-    function renderImage(params) {
-    // Create a new image element
-    var img = new Image();
-
-    img.src = params.data.thumbnail;
-
-    // Set the width and height of the image to 50 pixels
-    img.width = 50;
-    img.height = 50;
-
-    // Return the image element
-    return img;
-    }
-'''
-)
-
-
-# Configure the 'thumbnail' column to use 'agImageCellRenderer'
+# Configure the 'thumbnail' column to use the built-in image renderer
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_column(
     'thumbnail',
     headerName='Image',
-    cellRenderer=render_image,
-    width=100
+    cellRenderer='agImageCellRenderer',
+    width=100,
+    cellRendererParams={
+        'width': 50,
+        'height': 50
+    }
 )
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
@@ -65,7 +49,6 @@ gridOptions = gb.build()
 gridOptions['onCellClicked'] = on_cell_clicked
 
 # Display the grid
-
 AgGrid(
     df,
     gridOptions=gridOptions,
