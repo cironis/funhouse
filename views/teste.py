@@ -18,9 +18,9 @@ df = pd.DataFrame(data)
 gb = GridOptionsBuilder.from_dataframe(df,
                                         editable=True)
 
-cell_renderer =  JsCode("""
-                        function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
-                        """)
+# cell_renderer =  JsCode("""
+#                         function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
+#                         """)
 
 
 gb.configure_column(
