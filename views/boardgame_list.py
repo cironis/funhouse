@@ -80,7 +80,8 @@ column_defs = [
     },
     {
         'field': 'name',
-        'headerName': 'Name'
+        'headerName': 'Name',
+        'flex': 2
     },
     {
         'field': 'year',
