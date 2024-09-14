@@ -20,12 +20,20 @@ df = load_main_dataframe("database")
 
 df["image_path"] = df["game_id"].apply(lambda x: f"/images/image_{x}.jpg")
 
-# Define the cell renderer to display image as a hyperlink
-cell_renderer = JsCode('''
-function(params) {
-    return '<a href="' + params.data.url + '" target="_blank"><img src="' + params.data.image_path + '" style="height:60px;"></a>';
-}
-''')
+render_image = JsCode("""function (params) {
+            var element = document.createElement("span");
+            var imageElement = document.createElement("img");
+        
+            if (params.data.image_path) {
+                imageElement.src = params.data.image_path;
+                imageElement.width="20";
+            } else {
+                imageElement.src = "";
+            }
+            element.appendChild(imageElement);
+            element.appendChild(document.createTextNode(params.value));
+            return element;
+            }""")
 
 # Define the function to set row height
 get_row_height = JsCode('''
@@ -36,7 +44,7 @@ function(params) {
 
 # Build grid options
 gb = GridOptionsBuilder.from_dataframe(df)
-gb.configure_column('image_path', headerName='Image', cellRenderer=cell_renderer)
+gb.configure_column('image_path', headerName='Image', cellRenderer=render_image)
 gb.configure_column('name', headerName='Name')
 gb.configure_column('year', headerName='Year')
 gb.configure_column('minplayers', headerName='Min Players')
