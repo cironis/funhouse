@@ -1,7 +1,8 @@
+
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
-from st_aggrid import AgGrid, GridOptionsBuilder,JsCode
+from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
 
 st.set_page_config(page_title="Board Game - Database", page_icon="♙", layout="wide")
 
@@ -15,15 +16,15 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
-# Configure the 'thumbnail' column to use the built-in image renderer
+# Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_column(
     'thumbnail',
     headerName='Image',
     cellRenderer='agImageCellRenderer',
     cellRendererParams={
-        'domElement': 'img',
-        'style': {'width': '50px', 'height': '50px'}
+        'imageHeight': 50,
+        'imageWidth': 50
     },
     width=100
 )
@@ -54,3 +55,4 @@ AgGrid(
     gridOptions=gridOptions,
     allow_unsafe_jscode=True
 )
+
