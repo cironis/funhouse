@@ -20,7 +20,7 @@ authenticator = stauth.Authenticate(
 )
 
 # Login widget
-name, authentication_status, username = authenticator.login('Login', location='sidebar')
+name, authentication_status, username = authenticator.login('sidebar')
 
 if authentication_status:
     authenticator.logout('Logout', 'sidebar')
