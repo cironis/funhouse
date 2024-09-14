@@ -22,7 +22,7 @@ render_image = JsCode('''
     // Create a new image element
     var img = new Image();
 
-    img.src = params.value.thumbnail;
+    img.src = params.data.thumbnail;
 
     // Set the width and height of the image to 50 pixels
     img.width = 50;
