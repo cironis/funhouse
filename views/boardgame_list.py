@@ -18,6 +18,8 @@ st.title("Board Game - Database")
 
 df = load_main_dataframe("database")
 
+df["image_path"] = df["game_id"].apply(lambda x: f"/images/image_{x}.jpg")
+
 # Define the cell renderer to display image as a hyperlink
 cell_renderer = JsCode('''
 function(params) {
