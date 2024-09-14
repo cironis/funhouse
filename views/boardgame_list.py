@@ -16,19 +16,46 @@ st.title("Database")
 
 df = load_main_dataframe("database")
 
-cell_renderer =  JsCode("""
-        class UrlCellRenderer {
-          init(params) {
-            this.eGui = document.createElement('img');
-            this.eGui.setAttribute('src', params.value);
-            this.eGui.setAttribute('height', "100");
-            this.eGui.setAttribute('style', "display: block; margin-left: auto; margin-right: auto;");
-          }
-          getGui() {
-            return this.eGui;
-          }
+# cell_renderer =  JsCode("""
+#         class UrlCellRenderer {
+#           init(params) {
+#             this.eGui = document.createElement('img');
+#             this.eGui.setAttribute('src', params.value);
+#             this.eGui.setAttribute('height', "100");
+#             this.eGui.setAttribute('style', "display: block; margin-left: auto; margin-right: auto;");
+#           }
+#           getGui() {
+#             return this.eGui;
+#           }
+#         }
+#     """)
+
+cell_renderer = JsCode("""
+    class UrlCellRenderer {
+        init(params) {
+            // Create an anchor element
+            this.eGui = document.createElement('a');
+            this.eGui.href = params.data.url; // Set the href to the 'url' field in your data
+            this.eGui.target = '_blank'; // Optional: Open link in a new tab
+
+            // Create an image element
+            var img = document.createElement('img');
+            img.src = params.value; // Use the cell value as the image source
+            img.height = 100;
+            img.style.display = 'block';
+            img.style.marginLeft = 'auto';
+            img.style.marginRight = 'auto';
+
+            // Append the image to the anchor
+            this.eGui.appendChild(img);
         }
-    """)
+
+        getGui() {
+            return this.eGui;
+        }
+    }
+""")
+
 
 
 # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
