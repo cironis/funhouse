@@ -37,7 +37,7 @@ def create_grid(df,selection):
     gb = GridOptionsBuilder.from_dataframe(df)
     
     if (selection == True):
-        gb.configure_selection('single')
+        gb.configure_selection('single', use_checkbox=True)
 
     column_defs = [
         {
@@ -86,6 +86,7 @@ def create_grid(df,selection):
     """)
 
     gridOptions['onGridReady'] = on_grid_ready
+
 
     if (selection == True):
         grid = AgGrid(
