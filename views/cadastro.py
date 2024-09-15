@@ -30,9 +30,7 @@ if authentication_status:
     st.sidebar.write(f'Welcome *{name}*')
     # Main application code
     st.title('Cadastrar Jogos')
-    my_teste = teste()
-    st.warning(my_teste)
-
+    
     # Create a search box
     search_query = st.text_input("Enter your search query", "")
 
