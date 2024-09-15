@@ -16,6 +16,7 @@ def load_main_dataframe(worksheet):
 st.title("Database")
 
 df = load_main_dataframe("database")
+total_de_jogos = len(df)
 
 # columns ['game_id', 'name', 'year', 'minplayers', 'maxplayers', 'playingtime', 'thumbnail', 'url', 'DIY']
 filter_1,filter_2 = st.columns(2)
@@ -36,3 +37,6 @@ if diy_filter != "Todos":
         df = df[df['DIY'] == False]
 
 create_grid(df,False)
+
+jogos_filtrados = len(df)
+st.write(f"Jogos: {jogos_filtrados}/{total_de_jogos}")
