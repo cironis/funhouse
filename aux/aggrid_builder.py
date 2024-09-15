@@ -37,7 +37,7 @@ def create_grid(df,selection):
 
     # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
     gb = GridOptionsBuilder.from_dataframe(df)
-    
+
     if (selection == True):
         gb.configure_selection('single', use_checkbox=True)
 
@@ -91,15 +91,6 @@ def create_grid(df,selection):
         'rowHeight': 120
     }
 
-    on_grid_ready = JsCode("""
-    function(event) {
-        event.api.sizeColumnsToFit();
-    }
-    """)
-
-    gridOptions['onGridReady'] = on_grid_ready
-
-
     if (selection == True):
         grid = AgGrid(
             df,
@@ -107,7 +98,7 @@ def create_grid(df,selection):
             allow_unsafe_jscode=True,
             fit_columns_on_grid_load=True,
             theme="material",
-            update_mode=GridUpdateMode.SELECTION_CHANGED 
+            update_mode=GridUpdateMode.SELECTION_CHANGED
         )
     else:
         grid = AgGrid(
