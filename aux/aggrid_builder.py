@@ -5,6 +5,8 @@ from st_aggrid.shared import JsCode
 
 def create_grid(df,selection):
 
+    hide = not selection
+
     cell_renderer = JsCode("""
         class UrlCellRenderer {
             init(params) {
@@ -74,7 +76,13 @@ def create_grid(df,selection):
         {
             'field': 'game_id',
             'headerName': 'game_id',
-            'hide': !selection,
+            'hide': hide,
+            'checkboxSelection': selection
+        },
+        {
+            'field': 'DIY',
+            'headerName': 'DIY',
+            'hide': hide,
             'checkboxSelection': selection
         }
     ]
