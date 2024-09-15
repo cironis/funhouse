@@ -35,8 +35,7 @@ if diy_filter != "Todos":
     else:
         df = df[df['DIY'] == False]
 
-grid = create_grid(df)
-grid
+create_grid(df)
 
 # cell_renderer = JsCode("""
 #     class UrlCellRenderer {
