@@ -79,7 +79,7 @@ def create_grid(df,selection):
             'hide': hide,
         },
         {
-            'headerName': 'DIY',
+            'headerName': 'Add to Database',
             'hide': hide,
             'checkboxSelection': selection
         }
