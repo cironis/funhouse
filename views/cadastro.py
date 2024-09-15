@@ -6,7 +6,7 @@ from yaml.loader import SafeLoader
 from aux.boargamegeek_api import teste,query_boardgamegeek
 import pandas as pd
 
-teste()
+my_teste = teste()
 
 # Define a custom function that will be triggered on search
 def search_function(query):
@@ -41,6 +41,7 @@ if authentication_status:
     st.sidebar.write(f'Welcome *{name}*')
     # Main application code
     st.title('Cadastrar Jogos')
+    st.warning(my_teste)
 
     # Create a search box
     search_query = st.text_input("Enter your search query", "")
