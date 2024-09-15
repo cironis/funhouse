@@ -53,7 +53,7 @@ def create_grid(df,selection):
         {
             'field': 'name',
             'headerName': 'Name',
-            'flex': 3
+            'flex': 2
         },
         {
             'field': 'year',
