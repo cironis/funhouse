@@ -58,22 +58,22 @@ def create_grid(df,selection):
         {
             'field': 'year',
             'headerName': 'Year',
-            'flex': 0.25
+            'flex': 0.5
         },
         {
             'field': 'minplayers',
             'headerName': 'Min Players',
-            'flex': 0.25
+            'flex': 0.5
         },
         {
             'field': 'maxplayers',
             'headerName': 'Max Players',
-            'flex': 0.25
+            'flex': 0.5
         },
         {
             'field': 'playingtime',
             'headerName': 'Playing Time (min)',
-            'flex': 0.25
+            'flex': 0.5
         },
         {
             'field': 'url',
