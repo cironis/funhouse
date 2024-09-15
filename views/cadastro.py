@@ -43,6 +43,7 @@ if authentication_status:
             results_df = query_boardgamegeek(search_query)
             if not results_df.empty:
                 grid = create_grid(results_df,True)
+                st.warning(grid)
             else:
                 st.warning("No results found.")
 
