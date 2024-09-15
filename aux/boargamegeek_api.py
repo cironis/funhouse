@@ -11,7 +11,7 @@ import pandas as pd
 import streamlit as st
 
 def teste():
-    st.write("teste")
+    return "teste"
 
 def get_game_info(batch_ids):
 
