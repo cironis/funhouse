@@ -3,6 +3,10 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
+from aux.boargamegeek_api import teste,query_boardgamegeek
+import pandas as pd
+
+teste()
 
 # Define a custom function that will be triggered on search
 def search_function(query):
