@@ -35,4 +35,4 @@ if diy_filter != "Todos":
     else:
         df = df[df['DIY'] == False]
 
-create_grid(df)
+create_grid(df,False)

@@ -3,8 +3,8 @@ import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 from st_aggrid.shared import JsCode
 
-def create_grid(df):
-    
+def create_grid(df,selection):
+
     cell_renderer = JsCode("""
         class UrlCellRenderer {
             init(params) {
@@ -35,6 +35,9 @@ def create_grid(df):
 
     # Configure the 'thumbnail' column to use the built-in image renderer with correct parameters
     gb = GridOptionsBuilder.from_dataframe(df)
+    
+    if (selection == True):
+        gb.configure_selection('single')
 
     column_defs = [
         {
@@ -84,13 +87,22 @@ def create_grid(df):
 
     gridOptions['onGridReady'] = on_grid_ready
 
-
-    grid = AgGrid(
-        df,
-        gridOptions=gridOptions,
-        allow_unsafe_jscode=True,
-        fit_columns_on_grid_load=True,
-        theme="material"
-    )
+    if (selection == True):
+        grid = AgGrid(
+            df,
+            gridOptions=gridOptions,
+            allow_unsafe_jscode=True,
+            fit_columns_on_grid_load=True,
+            theme="material",
+            update_mode=GridUpdateMode.SELECTION_CHANGED 
+        )
+    else:
+        grid = AgGrid(
+            df,
+            gridOptions=gridOptions,
+            allow_unsafe_jscode=True,
+            fit_columns_on_grid_load=True,
+            theme="material"
+        )
 
     return grid

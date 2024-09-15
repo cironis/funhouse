@@ -30,7 +30,7 @@ if authentication_status:
     st.sidebar.write(f'Welcome *{name}*')
     # Main application code
     st.title('Cadastrar Jogos')
-    
+
     # Create a search box
     search_query = st.text_input("Enter your search query", "")
 
@@ -42,7 +42,7 @@ if authentication_status:
         if search_query:
             results_df = query_boardgamegeek(search_query)
             if not results_df.empty:
-                create_grid(results_df)
+                grid = create_grid(results_df,True)
             else:
                 st.warning("No results found.")
 
