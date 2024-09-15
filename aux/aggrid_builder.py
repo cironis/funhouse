@@ -44,6 +44,7 @@ def create_grid(df,selection):
             'field': 'thumbnail',
             'headerName': 'Image',
             'cellRenderer': cell_renderer
+            'checkboxSelection': True
         },
         {
             'field': 'name',
