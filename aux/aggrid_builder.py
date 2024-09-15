@@ -43,8 +43,7 @@ def create_grid(df,selection):
         {
             'field': 'thumbnail',
             'headerName': 'Image',
-            'cellRenderer': cell_renderer,
-            'checkboxSelection': selection
+            'cellRenderer': cell_renderer
         },
         {
             'field': 'name',
@@ -71,6 +70,12 @@ def create_grid(df,selection):
             'field': 'url',
             'headerName': 'URL',
             'hide': True  # Hide the 'url' column but keep it in data
+        },
+        {
+            'field': 'game_id',
+            'headerName': 'game_id',
+            'hide': !selection,
+            'checkboxSelection': selection
         }
     ]
 
