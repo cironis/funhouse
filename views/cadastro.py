@@ -3,18 +3,9 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
-from aux.boargamegeek_api import teste,query_boardgamegeek
+from aux.boargamegeek_api import query_boardgamegeek, get_game_info
+from aux.aggrid_builder import create_grid
 import pandas as pd
-
-# Define a custom function that will be triggered on search
-def search_function(query):
-    # Simulate search operation or custom logic
-    st.write(f"Searching for: {query}")
-    # Example: Return search results or perform some operation
-    search_results = [f"Result {i}" for i in range(1, 6)]
-    st.write("Search Results:")
-    for result in search_results:
-        st.write(result)
 
 # Access the signature key from st.secrets
 signature_key = st.secrets["credentials"]["signature_key"]
@@ -51,7 +42,12 @@ if authentication_status:
     # Trigger the search function when the button is clicked or Enter is pressed
     if search_button or search_query:
         if search_query:
-            search_function(search_query)
+            results_df = query_boardgamegeek(search_query)
+            if not results_df.empty:
+                create_grid(results_df)
+            else:
+                st.warning("No results found.")
+
         else:
             st.error("Please enter a search query.")
 
