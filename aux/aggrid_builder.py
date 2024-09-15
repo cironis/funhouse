@@ -102,7 +102,8 @@ def create_grid(df,selection):
         'columnDefs': column_defs,
         'rowHeight': 120,
         'domLayout': 'autoHeight',
-        'suppressHorizontalScroll': False,  
+        'suppressHorizontalScroll': False,
+        'suppressVerticalScroll': False  
     }
 
     if (selection == True):
