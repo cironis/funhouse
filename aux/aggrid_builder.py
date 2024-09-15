@@ -45,7 +45,10 @@ def create_grid(df,selection):
         {
             'field': 'thumbnail',
             'headerName': 'Image',
-            'cellRenderer': cell_renderer
+            'cellRenderer': cell_renderer,
+            'flex': 1,
+            'minWidth': 100,
+            'maxWidth': 200,
         },
         {
             'field': 'name',
@@ -54,19 +57,23 @@ def create_grid(df,selection):
         },
         {
             'field': 'year',
-            'headerName': 'Year'
+            'headerName': 'Year',
+            'flex': 0.5
         },
         {
             'field': 'minplayers',
-            'headerName': 'Min Players'
+            'headerName': 'Min Players',
+            'flex': 0.5
         },
         {
             'field': 'maxplayers',
-            'headerName': 'Max Players'
+            'headerName': 'Max Players',
+            'flex': 0.5
         },
         {
             'field': 'playingtime',
-            'headerName': 'Playing Time (min)'
+            'headerName': 'Playing Time (min)',
+            'flex': 0.5
         },
         {
             'field': 'url',
@@ -96,7 +103,6 @@ def create_grid(df,selection):
             df,
             gridOptions=gridOptions,
             allow_unsafe_jscode=True,
-            fit_columns_on_grid_load=True,
             theme="material",
             update_mode=GridUpdateMode.SELECTION_CHANGED
         )
@@ -105,7 +111,6 @@ def create_grid(df,selection):
             df,
             gridOptions=gridOptions,
             allow_unsafe_jscode=True,
-            fit_columns_on_grid_load=True,
             theme="material"
         )
 
