@@ -76,7 +76,7 @@ def create_grid(df,selection):
         {
             'field': 'game_id',
             'headerName': 'game_id',
-            'hide': hide,
+            'hide': True,
         },
         {
             'headerName': 'Add to Database',
